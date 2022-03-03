@@ -14,10 +14,14 @@ If (-not(Test-Path $SourcePath)) {
     Exit
 }
 
+#Displaying order before sort
 Write-Host "Sorting based on Name and date modified..."
+$GetContent = Get-ChildItem -Recurse $SourcePath
+$GetContent| Format-Table -Property Length, Name
+
 # Sort the objects
 $Sorted = "Get-ChildItem -Recurse $SourcePath | Sort-Object -Property Length, Name"
 
 # Displaying new order in the folder
-Write-Host "Displaying new order of the folder..."
+Write-Host "Displaying order of the folder..."
 Invoke-Expression $Sorted | Format-Table -Property Length, Name
