@@ -39,8 +39,10 @@ foreach ($file in $files) {
             New-Item -ItemType Directory -Path $LogPath -ErrorAction Stop
             New-Item -ItemType File -Path $LogFile -ErrorAction Stop      
         }
-
-        $_.Exception | Out-File $LogFile -Append
+        # Append date and time
+        $LogDate = Get-Date
+        $logstring = $LogDate.ToString() + "  $_.Exception"
+        $logstring | Out-File $LogFile -Append
         continue
     }
 }
