@@ -4,5 +4,13 @@ If ($args.Count -lt 1) {
     Exit
 }
 
-$Hex = $args[0] | Format-Hex
-Write-Host $Hex
+If ($args[1]) {
+    $Count = $args[1]
+    $Hex = $args[0] | Format-Hex -Count $Count
+}
+else {
+    $Hex = $args[0] | Format-Hex
+}
+
+
+Write-Host $Hex 
