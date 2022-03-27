@@ -3,4 +3,5 @@ If ($args.Count -lt 2) {
     Exit
 }
 
-ConvertTo-Csv -InputObject $args[0] -Delimiter $args[1]
+$ConvertedInput = ConvertTo-Csv -InputObject $args[0] -Delimiter $args[1]
+Write-Host $ConvertedInput
