@@ -6,7 +6,7 @@ If ($args.Count -lt 2) {
 $SourcePath = $args[0]
 $Extension = "*" + $args[1]
 #Check if the path is valid
-If (-not(Test-Path $SourcePath)) {
+If (-not(Test-Path $SourcePath -PathType Container)) {
     Write-Host "Please enter a valid Path."
     Exit
 }
